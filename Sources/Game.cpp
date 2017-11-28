@@ -53,7 +53,11 @@ void Update()
     FillRect(Rect(-320, -240, 640, 100), Color::green);
 
     // 雲の描画
-    DrawImage("cloud1.png", cloudPos);
+    if (cloudPos.x < 280) {                 // 雲が移動し、折り返して表示されるように変更(HW16A115 田中雄登)
+        cloudPos.x += 70 * Time::deltaTime;
+        DrawImage("cloud1.png", cloudPos);
+    }
+    else cloudPos.x = -320;
 
     // 弾の描画
     if (bulletPos.x > -999) {
