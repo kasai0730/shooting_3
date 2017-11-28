@@ -16,6 +16,7 @@ Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
+bool    flag = false;
 
 
 // ゲーム開始時に呼ばれる関数です。
@@ -47,10 +48,20 @@ void Update()
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
-
+    
+    //大砲の移動を追加 (HW16A114 田中 陽大)
+    if (cannonPos.y <= -150) flag = false;
+    if (cannonPos.y >= -70) flag = true;
+    if (flag == true) {
+        cannonPos.y -= 3;
+    }else{
+        cannonPos.y += 3;
+    }
+    
     // 背景の描画
     Clear(Color::cyan);
     FillRect(Rect(-320, -240, 640, 100), Color::green);
+    
 
     // 雲の描画
     DrawImage("cloud1.png", cloudPos);
