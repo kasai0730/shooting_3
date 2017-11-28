@@ -22,8 +22,8 @@ int     score;          //!< スコア
 void Start()
 {
     cloudPos = Vector2(-320, 100);
-    cannonPos = Vector2(-80, -150);
-    targetRect = Rect(80, -140, 40, 40);
+    cannonPos = Vector2(-310, -150);        // 砲台の位置変更(HW16A115 田中雄登)
+    targetRect = Rect(280, -140, 40, 40);   // ターゲットの位置変更(HW16A115 田中雄登)
     bulletPos.x = -999;
     score = 0;
 }
