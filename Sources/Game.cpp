@@ -7,7 +7,7 @@
 // TODO: 弾のスピードを速くし、弾が画面右端を通り越したら再度発射可能にする。(D)
 // TODO: スコアのサイズを大きくする。(E)
 // TODO: スコアを100点ずつ加算するようにし、5桁の表示に変える。(F)
-// TODO: PlayBGM()関数を使って、BGMを再生する。(G)
+// TODO: PlayBGM()関数を使って、BGMを再生する。(G)-
 // TODO: PlaySE()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)
 
 
@@ -26,6 +26,7 @@ void Start()
     targetRect = Rect(80, -140, 40, 40);
     bulletPos.x = -999;
     score = 0;
+    PlayBGM("bgm_maoudamashii_8bit07.mp3"); //BGMの追加(HW16A046 笠井智也)
 }
 
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
