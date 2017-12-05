@@ -8,7 +8,7 @@
 // TODO: スコアのサイズを大きくする。(E)
 // TODO: スコアを100点ずつ加算するようにし、5桁の表示に変える。(F)
 // TODO: PlayBGM()関数を使って、BGMを再生する。(G)
-// TODO: PlaySE()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)
+// TODO: PlaySE()関数を使って、弾の発射時とターゲットに当たった時にSEを再生する。(H)-
 
 
 Vector2 cloudPos;       //!< 雲の位置
@@ -34,6 +34,7 @@ void Update()
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
+        PlaySound("se_maoudamashii_explosion03.mp3");   //発射SEの追加(HW16A046 笠井智也)
     }
 
     // 弾の移動
@@ -45,6 +46,8 @@ void Update()
         if (targetRect.Overlaps(bulletRect)) {
             score += 1;         // スコアの加算
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
+            
+            PlaySound("se_maoudamashii_explosion06.mp3");   //被弾SEの追加(HW16A046 笠井智也)
         }
     }
 
